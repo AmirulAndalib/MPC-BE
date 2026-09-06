@@ -465,7 +465,7 @@ bool CFFAudioDecoder::Init(enum AVCodecID codecID, CMediaType* mediaType)
 		m_bNeedMix = true;
 		m_MixerChannels = 8;
 		m_MixerChannelLayout = GetDefChannelMask(8);
-		m_Mixer.UpdateInput(SAMPLE_FMT_FLTP, m_pAVCtx->ch_layout.u.mask, m_pAVCtx->sample_rate);
+		m_Mixer.UpdateInput((SampleFormat)m_pAVCtx->sample_fmt, m_pAVCtx->ch_layout.u.mask, m_pAVCtx->sample_rate);
 		m_Mixer.UpdateOutput(SAMPLE_FMT_FLT, m_MixerChannelLayout, m_pAVCtx->sample_rate);
 	}
 	else if (codec_id == AV_CODEC_ID_VORBIS) {
